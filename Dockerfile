@@ -5,7 +5,7 @@ ARG DOWNLOADURL="https://omnidb.org/dist/2.14.0/omnidb-server_2.14.0-debian-amd6
 
 RUN  apt-get update \
   && apt-get install -y wget \
-  && ln -s /usr/bin/true /usr/bin/systemctl \
+  && if [ ! -e '/bin/systemctl' ]; then ln -s /bin/echo /bin/systemctl; fi \
   && cd /tmp/ \
   && wget -q ${DOWNLOADURL} -O omnidb-server.deb \
   && dpkg -i omnidb-server.deb \
