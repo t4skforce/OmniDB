@@ -15,5 +15,4 @@ RUN  apt-get update \
 EXPOSE 8000
 EXPOSE 25482
 
-WORKDIR /app
 CMD ["omnidb-server"]
