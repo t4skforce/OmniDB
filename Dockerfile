@@ -9,10 +9,12 @@ RUN  apt-get update \
   && cd /tmp/ \
   && wget -q ${DOWNLOADURL} -O omnidb-server.deb \
   && dpkg -i omnidb-server.deb \
+  && mkdir -p /data \
   && rm -rf /var/lib/apt/lists/* \
   && rm -rf /tmp/*
 
 EXPOSE 8000
 EXPOSE 25482
 
-CMD ["omnidb-server"]
+VOLUME ["/data"]
+CMD ["omnidb-server","-d","/data"]
