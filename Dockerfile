@@ -1,7 +1,7 @@
 FROM debian:stable-slim
 
-ARG VERSION="2.14.0"
-ARG DOWNLOADURL="https://omnidb.org/dist/2.14.0/omnidb-server_2.14.0-debian-amd64.deb"
+ARG VERSION="2.15.0"
+ARG DOWNLOADURL="https://omnidb.org/dist/2.15.0/omnidb-server_2.15.0-debian-amd64.deb"
 
 RUN  apt-get update \
   && apt-get install -y wget \

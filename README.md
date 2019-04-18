@@ -1,29 +1,39 @@
-## Next Release: *2.15.0 - April 11, 2019*
+## Next Release: *2.16.0 - June 13, 2019*
 
-# OmniDB 2.14.0
+# OmniDB 2.15.0
 
-## Release Date: *February 14, 2019*
+## Release Date: *April 18, 2019*
 
 ## Release Notes
 
 - New features:
-  - Connection via URI, allowing more connection parameters (for more details check https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING)
-  - Easy installation/removal of OmniDB plugins
-  - Plugin API: Monitoring Units can now be created as separate plugins
-  - Global user interface font size is now customizable
-  - (PostgreSQL) Support to user-defined types and domains
+  - SSH terminal emulator
+  - PostgreSQL: Support to event triggers and event trigger functions
 - Improvements:
-  - Monitoring Dashboard: Charts with many labels now are rendered with a vertical scroll bar
-  - Monitoring Dashboard: Non-append charts now keep original colors
-  - Included support to MariaDB 10.3
-  - Included support to MySQL 8.0
-  - Included support to Oracle 18c
-  - Included support to Postgres-XL 10
+  - Monitoring units can now use past data, allowing users to create historical charts
+  - Improved security: disabled TLSv1.0 and TLSv1.1
+  - Support to file .my.cnf for MySQL and MariaDB connections
+  - App graphical stack upgraded to Electron 4.1 and GTK 3
+  - Grid component HandsOnTable upgraded to 7.0
+  - Improved thread safety
+  - Improved websocket connection handling in the client side
 - Bug fixes:
-  - Fixed error when clicking on a foreign table, then Data Actions, then Query Data
-  - Fixed error when changing connection: object of type 'NoneType' has no len()
-  - Fixed CentOS 7 package error: OmniDB server service file is missing
-  - Fixed error in EditData being shown if PK column name has quotes and table has at least 1 record
+  - Fixed error on EditData when primary key was of type date or timestamp
+  - Fixed display and handling of array types
+  - Fixed handling of BC and infinity dates
+  - Fixed bug involving SELECT INTO statements
+  - Fixed error message not completely copyable from error popup
+  - Fixed bug when sorting connection grid
+  - Fixed bug when changing user password
+  - Fixed bug when creating connections from omnidb-config (CLI)
+  - Fixed bug that sporadically breaks query tab usability after query is cancelled
+  - Fixed bug in drag and drop of tabs in Firefox
+- Changes in deployment
+  - Dropped support for 32 bits builds
+  - Linux deployment machines migrated from Vagrant to Docker
+- Changes in test pipeline
+  - PostgreSQL, Oracle, MySQL and MariaDB test machines migrated from Vagrant to Docker
+  - New Vagrant machines for User Acceptance Tests (with graphical environment to test OmniDB app)
 
 
 # 1- Installation
