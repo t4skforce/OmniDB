@@ -1,41 +1,26 @@
-## Next Release: *2.17.0 - Aug 14, 2019*
+## Updates
 
-# OmniDB 2.16.0
+https://github.com/OmniDB/OmniDB/issues/1067
 
-## Release Date: *June 13, 2019*
+## Next Release: *To be defined.*
+
+# OmniDB 2.17.0
+
+## Release Date: *December 5, 2019*
 
 ## Release Notes
 
 - New features:
-  - Monitoring Dashboard: Graph monitor unit type
-  - Monitoring Dashboard: New standard units: TPS, WAL Production and Replication Graph
-  - PostgreSQL TreeView: New groups for partitioned and inherited tables
-  - PostgreSQL Debugger Plugin: Support for PostgreSQL running on OSX
-  - Server: Support to run OmniDB on a custom URL path
-  - Snippets: Run Snippet in Connection
+  - Support to PostgreSQL 12.
 - Improvements:
-  - UI usability:
-    - Add Connection list in (+) menu of outer tabs
-    - Show red X on tabs only on mouse hover
-    - Color icons in Dark Theme
-    - Release Notes outer tab now stay closed and only open upon next upgrade
-  - Other improvements:
-    - Included procedures in Advanced Object Search for PostgreSQL 11
-- Important changes:
-  - PostgreSQL Debugger Plugin: Requires a host connection on all platforms
-- Deployment:
-  - OmniDB server and PostgreSQL debugger plugin packages under Debian PGDG repository (thanks to Christoph Berg @df7cb )
+  - Table DDL panel shows generated columns.
+  - Added SQL template for Cluster Index, accessible from context menu in TreeView.
+  - Added Advanced Object Search as an option in Inner Tab context menu.
 - Bug fixes:
-  - Fixed #768: Monitoring - some units fail on a standby server
-  - Fixed #836: SELECT ... INTO is not allowed here
-  - Fixed #845: Partitioned relation indexes
-  - Fixed #938: Password in connection string not used
-  - Fixed #940: Unable to change column width of query results
-  - Fixed #960: Snippet TreeView not rendering properly
-  - Fixed #970: Focus on change Query Tab names
-  - Fixed #981: Updatable chart titles
-  - Fixed #990: Cleanup of inactive web socket clients
-
+  - Fixed: Server ping causing peaks of false positives in moments of brief network interruption or idle activities, or when the notebook running OmniDB was put to sleep.
+  - Fixed: High CPU usage when SSH console is being used and tunnel gets closed.
+  - Fixed: Render issue with graph chart type.
+  - Fixed: Permission issue to install OmniDB plugins on Linux.
 
 **Full Documentation**: https://omnidb.readthedocs.io
 
@@ -190,17 +175,36 @@ You can also install from repositories (as root):
 
 ## 2.2- Debian / Ubuntu repository
 
-**IMPORTANT**: Currently OmniDB server and PostgreSQL debugger plugin packages
-can be installed from Debian PGDG repository.
-
 ```
 apt install apt-transport-https dirmngr
 echo "deb https://dl.bintray.com/wind39/omnidb-deb debian main" > /etc/apt/sources.list.d/omnidb.list
 apt-key adv --recv-keys 379CE192D401AB61
 apt update
 
-apt install omnidb-app        # for the app
+apt install omnidb-app        # for the app; or
+apt install omnidb-server     # for the server
 ```
+
+**IMPORTANT**: Currently OmniDB PostgreSQL debugger plugin packages are
+recommended to be installed from Debian PGDG repository:
+
+```
+sudo echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list
+sudo wget --quiet -O - https://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | apt-key add -
+
+sudo apt install postgresql-X.Y-omnidb
+```
+
+For more details, please check the OmniDB PostgreSQL debugger plugin
+documentation [here](https://omnidb.readthedocs.io/en/latest/en/23_debugger_plugin_installation.html).
+
+**IMPORTANT**: Currently OmniDB server is also available from PGDG repository,
+but only working on Debian 10. There are some issues for this package on Debian
+9. Please check some relevant issues about this here:
+
+- https://github.com/OmniDB/OmniDB/issues/993
+- https://salsa.debian.org/postgresql/omnidb/issues/1
+
 
 ## 2.3- CentOS 7 / Fedora repository
 
@@ -218,6 +222,9 @@ yum install omnidb-app        # for the app; or
 yum install omnidb-server     # for the server; or
 yum install omnidb-plugin     # for the plugin
 ```
+
+For more details about the `omnidb-plugin`, please check the OmniDB PostgreSQL
+debugger plugin documentation [here](https://omnidb.readthedocs.io/en/latest/en/23_debugger_plugin_installation.html).
 
 
 # 3- From sources
