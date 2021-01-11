@@ -1,7 +1,7 @@
 FROM debian:stable-slim
 
-ARG VERSION="2.17.0"
-ARG DOWNLOADURL="https://omnidb.org/dist/2.17.0/omnidb-server_2.17.0-debian-amd64.deb"
+ARG VERSION="3.0.3b"
+ARG DOWNLOADURL="https://github.com/OmniDB/OmniDB/releases/download/3.0.3b/omnidb-server_3.0.3b_linux_x86_64.deb"
 
 RUN  apt-get update \
   && apt-get install -y wget \
