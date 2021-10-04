@@ -2,7 +2,7 @@ FROM debian:stable-slim
 
 ARG VERSION=""
 ARG DOWNLOADURL=""
-ARG BUILD_DATE=""
+ARG BUILD_DATE="20211004"
 
 RUN  apt-get update \
   && apt-get install -y wget \
