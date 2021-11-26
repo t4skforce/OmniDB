@@ -2,7 +2,7 @@ FROM debian:stable-slim
 
 ARG VERSION="3.0.3b"
 ARG DOWNLOADURL="https://github.com/OmniDB/OmniDB/releases/download/3.0.3b/omnidb-server_3.0.3b_linux_x86_64.deb"
-ARG BUILD_DATE="2021-11-19T17:37:19Z"
+ARG BUILD_DATE="2021-11-26T17:38:02Z"
 
 RUN  apt-get update \
   && apt-get install -y wget \
