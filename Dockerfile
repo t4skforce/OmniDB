@@ -15,7 +15,6 @@ RUN  apt-get update \
   && rm -rf /tmp/*
 
 EXPOSE 8000
-EXPOSE 25482
 
 VOLUME ["/data"]
-CMD ["omnidb-server","-H","0.0.0.0","-p","8000","-w","25482","-d","/data"]
+CMD ["omnidb-server","-H","0.0.0.0","-p","8000","-d","/data"]
